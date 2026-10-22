@@ -1,0 +1,62 @@
+/* Status surface, budget meters, shared bits. Tokens only. */
+
+.status-hero {
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); gap: var(--space-4); align-items: stretch;
+  padding: var(--space-4) var(--space-5); margin-bottom: var(--space-4);
+  border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius-lg); background: var(--bg); box-shadow: var(--shadow-xs);
+}
+.status-hero--blocked { border-left-color: var(--error-solid); }
+.status-hero--filed { border-left-color: var(--verified-solid); }
+.status-hero__stage { display: flex; gap: var(--space-3); align-items: flex-start; }
+.status-hero__stage > svg { width: 24px; height: 24px; flex: none; margin-top: var(--space-1); color: var(--text-tertiary); }
+.status-hero--blocked .status-hero__stage > svg { color: var(--error-solid); }
+.status-hero--filed .status-hero__stage > svg { color: var(--verified-solid); }
+.status-hero__title { font-size: var(--text-xl); font-weight: var(--weight-semibold); line-height: 1.3; }
+.status-hero__next { display: flex; flex-direction: column; gap: var(--space-1); align-items: flex-start; padding-left: var(--space-4); border-left: 1px solid var(--border); }
+.status-hero__nextlabel { font-weight: var(--weight-medium); }
+.status-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-4); align-items: start; }
+.status-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+.status-list__row {
+  display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-1);
+  border-bottom: 1px solid var(--border); color: var(--text-primary); text-decoration: none !important; border-radius: var(--radius-sm);
+}
+.status-list li:last-child .status-list__row { border-bottom: 0; }
+a.status-list__row:hover { background: var(--bg-hover); }
+.status-list__go { width: 14px; height: 14px; margin-left: auto; color: var(--text-tertiary); }
+.status-count {
+  min-width: 28px; height: 22px; padding: 0 var(--space-2); border-radius: var(--radius-full); display: inline-grid; place-items: center;
+  font-size: var(--text-sm); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums;
+}
+.status-count--error { background: var(--error-bg); color: var(--error-fg); }
+.status-count--warning { background: var(--warning-bg); color: var(--warning-fg); }
+.status-count--neutral { background: var(--neutral-bg); color: var(--neutral-fg); }
+.status-more { margin-top: var(--space-3); font-size: var(--text-sm); }
+.status-more summary { cursor: pointer; color: var(--accent-text); }
+.owners { display: grid; grid-template-columns: auto 1fr; gap: var(--space-1) var(--space-4); margin: 0; }
+.owners > div { display: contents; }
+.owners dt { color: var(--text-secondary); text-transform: capitalize; }
+.owners dd { margin: 0; font-weight: var(--weight-medium); }
+.milestones { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.milestones li { display: grid; grid-template-columns: 16px 1fr; column-gap: var(--space-2); align-items: center; color: var(--text-tertiary); }
+.milestones li > .text-xs { grid-column: 2; }
+.milestones li.is-done { color: var(--text-primary); }
+.card-icon { width: 16px; height: 16px; color: var(--text-tertiary); }
+
+.meter { position: relative; height: 8px; border-radius: var(--radius-full); background: var(--bg-muted); overflow: hidden; }
+.meter--inline { width: 100%; }
+.meter__fill { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: var(--verified-solid); }
+.meter__fill--near { background: var(--warning-solid); }
+.meter__fill--over { background: var(--error-solid); }
+.meter__fill--not_started { background: transparent; }
+
+.struck { text-decoration: line-through; color: var(--text-tertiary); }
+.linklike { border: 0; background: none; padding: 0; font: inherit; color: var(--accent-text); cursor: pointer; text-decoration: underline; }
+.linklike:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-radius: 2px; }
+
+/* the main region takes programmatic focus on navigation; no ring for that */
+.main:focus { outline: none; }
+
+@media (max-width: 760px) {
+  .status-hero { grid-template-columns: 1fr; }
+  .status-hero__next { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: var(--space-3); }
+}

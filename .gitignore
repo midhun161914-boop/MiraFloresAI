@@ -1,0 +1,27 @@
+# Python
+.venv/
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+dist/
+frontend/dist/
+*.tsbuildinfo
+
+# Runtime state (staged packet copy, event store)
+data/
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+
+# Env / logs / editor
+.env
+*.log
+.vscode/
+.idea/
+.DS_Store

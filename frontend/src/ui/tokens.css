@@ -1,0 +1,115 @@
+/*
+ * Design tokens — the only place raw values live. Components use these names.
+ *
+ * Type:    Inter, 13px base (data-dense), modular steps 11 → 24.
+ * Space:   8pt grid with a 4px half-step for tight inline gaps.
+ * Color:   cool neutral grays, ONE accent (indigo) reserved for interaction
+ *          and selection, and four semantic statuses: verified / open /
+ *          warning / error. Every text/background pair is checked for WCAG AA
+ *          by `npm run check:contrast` (scripts/contrast.mjs reads this file).
+ */
+:root {
+  /* ---- type ---- */
+  --font-sans: "Inter Variable", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Consolas, monospace;
+  --font-document: "Iowan Old Style", "Charter", "Source Serif Pro", Georgia, serif;
+
+  --text-2xs: 10.5px;   --lh-2xs: 14px;
+  --text-xs: 11px;      --lh-xs: 16px;
+  --text-sm: 12px;      --lh-sm: 16px;
+  --text-base: 13px;    --lh-base: 20px;
+  --text-md: 14px;      --lh-md: 20px;
+  --text-lg: 16px;      --lh-lg: 24px;
+  --text-xl: 20px;      --lh-xl: 28px;
+  --text-2xl: 24px;     --lh-2xl: 32px;
+
+  --weight-regular: 420;
+  --weight-medium: 520;
+  --weight-semibold: 600;
+  --tracking-tight: -0.011em;
+  --tracking-caps: 0.06em;
+
+  /* ---- space (8pt grid) ---- */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+  /* ---- size ---- */
+  --control-sm: 24px;
+  --control-md: 32px;
+  --row-compact: 32px;
+  --row-default: 40px;
+  --topbar-h: 48px;
+  --sidenav-w: 216px;
+  --panel-w: 380px;
+
+  /* ---- radius / elevation ---- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 999px;
+  --shadow-xs: 0 1px 1px rgba(16, 24, 40, 0.04);
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 0 0 1px rgba(16, 24, 40, 0.02);
+  --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08), 0 1px 3px rgba(16, 24, 40, 0.06);
+  --shadow-overlay: 0 12px 32px rgba(16, 24, 40, 0.16), 0 2px 6px rgba(16, 24, 40, 0.08);
+
+  /* ---- neutrals ---- */
+  --gray-0: #ffffff;
+  --gray-25: #fbfbfc;
+  --gray-50: #f7f8fa;
+  --gray-100: #f0f1f4;
+  --gray-150: #e8eaee;
+  --gray-200: #dfe2e7;
+  --gray-300: #c8cdd5;
+  --gray-400: #8b93a3;
+  --gray-500: #687082;
+  --gray-600: #4b5262;
+  --gray-700: #343a46;
+  --gray-800: #23272f;
+  --gray-900: #171a1f;
+
+  /* ---- roles ---- */
+  --bg: var(--gray-0);
+  --bg-canvas: var(--gray-50);
+  --bg-subtle: var(--gray-25);
+  --bg-muted: var(--gray-100);
+  --bg-hover: #f3f4f7;
+  --bg-inverse: var(--gray-900);
+  --border: var(--gray-150);
+  --border-default: var(--gray-200);
+  --border-strong: var(--gray-400);
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --text-tertiary: var(--gray-500);
+  --text-inverse: #ffffff;
+
+  /* ---- accent: interaction + selection only ---- */
+  --accent: #4747c9;
+  --accent-hover: #3b3bb3;
+  --accent-text: #4040c0;
+  --accent-subtle: #eeeefc;
+  --accent-border: #c9c9f3;
+  --focus-ring: #5b5bd6;
+
+  /* ---- semantic status ---- */
+  --verified-fg: #136c3e;  --verified-bg: #e9f6ee;  --verified-border: #b6e0c6;  --verified-solid: #1f9254;
+  --open-fg: #1b5fb4;      --open-bg: #eaf2fc;      --open-border: #bcd5f4;      --open-solid: #2f78d6;
+  --warning-fg: #8a4b00;   --warning-bg: #fdf3e1;   --warning-border: #f2d39b;   --warning-solid: #d48806;
+  --error-fg: #b42318;     --error-bg: #fdecea;     --error-border: #f5c2bc;     --error-solid: #d92d20;
+  --neutral-fg: #4b5262;   --neutral-bg: #f0f1f4;   --neutral-border: #dfe2e7;   --neutral-solid: #8b93a3;
+
+  /* evidence highlight (document text) */
+  --highlight: #ffe58a;
+  --highlight-soft: #fff6cc;
+  --highlight-border: #c99a06;
+
+  --duration-fast: 120ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}

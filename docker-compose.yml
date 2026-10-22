@@ -1,0 +1,12 @@
+services:
+  workpaper:
+    build: .
+    ports:
+      - "${HOST_PORT:-8000}:8000"
+    environment:
+      - DATA_DIR=/app/data
+    volumes:
+      # Staged packet copy and the SQLite event store.
+      - workpaper-data:/app/data
+volumes:
+  workpaper-data:

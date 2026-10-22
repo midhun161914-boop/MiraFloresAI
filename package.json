@@ -1,0 +1,12 @@
+{
+  "name": "miraflores-workpaper",
+  "private": true,
+  "description": "Web-native tax workpaper for the Okafor-Lindqvist 2025 return (FastAPI + React).",
+  "scripts": {
+    "dev": "node scripts/run.mjs dev",
+    "start": "node scripts/run.mjs start",
+    "test": "node scripts/run.mjs test",
+    "gen:api": "npm --prefix frontend run gen:api"
+  },
+  "engines": { "node": ">=18" }
+}
